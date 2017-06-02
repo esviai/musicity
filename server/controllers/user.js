@@ -35,7 +35,8 @@ module.exports = {
         username: req.body.username,
         password: hash,
         email: req.body.email,
-        loginMethod: req.body.login || 'web'
+        loginMethod: "web",
+        role: "user"
       }, function(err, user){
         if(!err){
           res.send(user);
@@ -113,7 +114,7 @@ module.exports = {
         bcrypt.compare(req.body.password, user.password)
           .then ((result) => {
             if (result) {
-              var token = jwt.sign({email: user.email,username: user.username,loginMethod: user.loginMethod}, 'MUSIXMATCH-UH-YEAH');
+              var token = jwt.sign({email: user.email,username: user.username,loginMethod: user.loginMethod, role: user.role}, 'MUSIXMATCH-UH-YEAH');
               res.send(token);
             }
             else {
