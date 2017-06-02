@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const musixmatch = require('./routes/musixmatch');
 mongoose.connect('mongodb://localhost/musicity');
 
 const index = require('./routes/index');
