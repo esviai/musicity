@@ -1,19 +1,15 @@
 var router = require('express').Router();
 var control = require('../controllers/user');
-var midleware = require('../helper/token');
+var midleware = require('../helpers/token');
 
 router.get('/', control.findAll);
 
-router.post('/', middleware.userLogin,control.findOrCreateUser);
+router.post('/', control.findOrCreateUser);
 
 router.get('/:id', midleware.userLogin, control.findOne);
 
-router.patch('/:id', midleware.userLogin, control.updateUser);
+router.put('/:id', midleware.userLogin, control.updateUser);
 
-router.delete('/:id', midleware.userLogin, control.deleteUser);
-
-router.post('/signin', control.signin);
-
-router.post('/signup', control.createUser);
+router.delete('/:id',control.deleteUser);
 
 module.exports = router;
