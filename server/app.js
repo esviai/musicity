@@ -7,6 +7,7 @@ mongoose.connect('mongodb://localhost/musicity');
 
 const index = require('./routes/index');
 var users = require('./routes/users');
+const search = require('./routes/musixmatch');
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/', index);
 app.use('/api/users', users);
+app.use('/search', search);
 
 app.listen(3000);

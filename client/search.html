@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Musicity search</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>Musicity search</h1>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <label for="input-lg">Search:</label>
+      <input class="search input-md" type="text" v-model="query">
+      <button class="btn-sm btn-primary submit-btn" type="submit" v-on:click="getMusic()">Submit</button>
+      <br><br>
+        <div class="container">
+          <button class="btn-sm btn-danger refresh-btn" type="submit">Refresh</button>
+        </div>
+    </div>
+    <br>
+    <div class="container result" v-for="track in tracks">
+      <h2>Track:</h2>
+      {{track}}
+    </div>
+    <br>
+    <div class="container result" v-for="artist in artists">
+      <h2>Artists:</h2>
+      {{artist}}
+    </div>
+    <br>
+    <div class="container result" v-for="lyric in lyrics">
+      <h2>Lyric:</h2>
+      {{lyric}}
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="/musixmatch.js"></script>
+</body>
+</html>
