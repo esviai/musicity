@@ -4,7 +4,7 @@ var midleware = require('../helper/token');
 
 router.get('/', control.findAll);
 
-router.post('/', middleware.userLogin,control.findOrCreateUser);
+router.post('/', midleware.userLogin,control.findOrCreateUser);
 
 router.get('/:id', midleware.userLogin, control.findOne);
 
