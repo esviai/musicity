@@ -88,7 +88,7 @@ module.exports = {
       username: req.body.username
     }, function(err, data){
       console.log(data);
-      if(!err){
+      if(!err && data){
         if(bcrypt.compareSync(req.body.password, data.password)){
           let token = jwt.sign({
             email: data.email,
@@ -100,7 +100,7 @@ module.exports = {
           res.send('log in gagal!');
         }
       } else {
-        res.send(err);
+        res.send('anda belum terdaftar!!');
       }
     })
     // User.findOne({

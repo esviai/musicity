@@ -9,11 +9,13 @@ module.exports = {
     let token = req.headers.token
     if(token){
       let decode = jwt.verify(token, process.env.SECRETPASS);
-      if(decode.username){
+      if(decode){
         next();
       }else{
         res.send('You\'r not Register');
       }
+    } else {
+      res.send('you\'r not register');
     }
   }
 }

@@ -2,7 +2,7 @@ var router = require('express').Router();
 var control = require('../controllers/user');
 var midleware = require('../helper/token');
 
-router.get('/', control.findAll);
+router.get('/', midleware.userLogin, control.findAll);
 
 router.post('/', midleware.userLogin, control.createUser);
 
