@@ -109,8 +109,8 @@ module.exports = {
     });
   },
   signin: function(req, res, next){
-    User.findOne({username: req.body.username}, (err,user) => {
-      if (user.username === req.body.username) {
+    User.findOne({email: req.body.email}, (err,user) => {
+      if (user.email === req.body.email) {
         bcrypt.compare(req.body.password, user.password)
           .then ((result) => {
             if (result) {

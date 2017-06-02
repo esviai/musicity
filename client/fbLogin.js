@@ -30,17 +30,18 @@ function statusChangeCallback (response) {
     FB.api('/me', 'GET', {fields: 'name,id,email'}, function(user) {
       //window.localStorage.setItem('username',user.name);
       //window.localStorage.setItem('email',user.email);
+      console.log(response.authResponse.accessToken);
       window.localStorage.setItem('token',response.authResponse.accessToken);
       axios.post('http://localhost:3000/api/users', {username: user.name,email: user.email, name: user.name, loginMethod:"facebook"})
         .then ((res) => {
           console.log('sukses dong');
           console.log(res);
-          //window.location.href="http://localhost:3000"
+          window.location.href="index.html"
         })
         .catch ((err) => {
           console.log('error cuy');
           console.log(err);
-          //window.location.href="http://localhost:3000/signin";
+          window.location.href="http://localhost:8080/login.html";
         });
       //axios.get('/')
       //  .then ((res) => {
