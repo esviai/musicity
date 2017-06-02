@@ -108,38 +108,22 @@ module.exports = {
     });
   },
   signin: function(req, res, next){
-    User.findOne({
-      where: {
-        username: req.body.username
+    User.findOne({where:{username: req.body.username}}, function(err, user){
+      if(user){
+        bcrypt.compare(req.body.password, user.password)
+          .then ((result) => {
+            if (result) {
+              var token = jwt.sign({email: user.email,username: user.username,loginMethod: user.loginMethod}, 'MUSIXMATCH-UH-YEAH');
+              res.send(token);
+            }
+            else {
+              res.send('username/password is wrong');
+            }
+          });
       }
-    }, function(err, data){
-      if(!err){
-        if(bcrypt.compareSync(req.body.password, data.dataValues.password)){
-          let token = jwt.sign({
-            email: data.dataValues.email,
-            username: data.dataValues.username,
-            loginMethod: data.dataValues.loginMethod
-          })
-        }
+      else {
+        res.send('You should register first');
       }
-    })
-    // User.findOne({
-    //     username: req.body.username
-    //   })
-    // .then((data)=>{
-    //   if(bcrypt.compareSync(req.body.password, data.dataValues.password)){
-    //     let token = jwt.sign({
-    //       email: data.dataValues.email,
-    //       username: data.dataValues.username,
-    //       loginMethod: data.dataValues.loginMethod || 'web'
-    //     }, process.env.SECRETPASS);
-    //     res.send('log in berhasil : '+token);
-    //   }else{
-    //     res.send('login gagal')
-    //   }
-    // })
-    // .catch((err)=>{
-    //   res.send(err)
-    // })
+    });
   }
 };
