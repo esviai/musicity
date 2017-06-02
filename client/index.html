@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="./fbLogin.js"></script>
+    <div id="status"></div>
+    <!-- <button onclick="getInfo()">Get Info</button> -->
+    <button onclick="login()">login</button>
+    <button onclick="logout()">logout</button>
+    <button onclick="getInfo()">get</button>
+    <fb:login-button 
+            scope="public_profile,email"
+            onlogin="checkLoginState();">
+    </fb:login-button>
+  </body>
+</html>
