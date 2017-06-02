@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/musicity');
 
 const index = require('./routes/index');
+var users = require('./routes/users');
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/', index);
+app.use('/api', users);
 
 app.listen(3000);
