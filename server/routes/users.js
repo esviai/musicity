@@ -3,12 +3,12 @@ var control = require('../controllers/user');
 
 router.get('/', control.findAll);
 
-router.post('/', control.createData);
+router.post('/', control.createUser);
 
 router.get('/:id', control.findOne);
 
-router.patch('/:id', control.updateById);
+router.patch('/:id', control.updateUser);
 
-router.delete('/:id', control.deleteById);
+router.delete('/:id', control.deleteUser);
 
 module.exports = router;

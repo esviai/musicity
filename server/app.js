@@ -16,6 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/', index);
-app.use('/api', users);
+app.use('/api/users', users);
 
 app.listen(3000);
