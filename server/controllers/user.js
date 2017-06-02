@@ -1,22 +1,23 @@
 var User = require('../models/user');
 var bcrypt = require('bcrypt');
-require('dotenv').config();
-const saltRounds = process.env.SALT;
+const saltRounds = 10;
 
 module.exports = {
   createUser: function(req, res, next){
-    User.create({
-      name: req.body.name,
-      username: req.body.username,
-      password: bcrypt.hashSync(req.body.password),
-      email: req.body.email,
-      loginMethod: req.body.login,
-    }, function(err, user){
-      if(!err){
-        res.send(user);
-      } else {
-        res.send(err);
-      }
+    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+      User.create({
+        name: req.body.name,
+        username: req.body.username,
+        password: hash,
+        email: req.body.email,
+        loginMethod: req.body.login,
+      }, function(err, user){
+        if(!err){
+          res.send(user);
+        } else {
+          res.send(err);
+        }
+      });
     });
   },
   findAll: function(req, res, next){
