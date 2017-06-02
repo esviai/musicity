@@ -35,7 +35,8 @@ module.exports = {
         username: req.body.username,
         password: hash,
         email: req.body.email,
-        loginMethod: req.body.login || 'web'
+        loginMethod: "web",
+        role: "user"
       }, function(err, user){
         if(!err){
           res.send(user);
@@ -108,38 +109,19 @@ module.exports = {
     });
   },
   signin: function(req, res, next){
-    User.findOne({
-      where: {
-        username: req.body.username
+    User.findOne({username: req.body.username}, (err,user) => {
+      if (user.username === req.body.username) {
+        bcrypt.compare(req.body.password, user.password)
+          .then ((result) => {
+            if (result) {
+              var token = jwt.sign({email: user.email,username: user.username,loginMethod: user.loginMethod, role: user.role}, 'MUSIXMATCH-UH-YEAH');
+              res.send(token);
+            }
+            else {
+              res.send('username/password is wrong');
+            }
+          });
       }
-    }, function(err, data){
-      if(!err){
-        if(bcrypt.compareSync(req.body.password, data.dataValues.password)){
-          let token = jwt.sign({
-            email: data.dataValues.email,
-            username: data.dataValues.username,
-            loginMethod: data.dataValues.loginMethod
-          })
-        }
-      }
-    })
-    // User.findOne({
-    //     username: req.body.username
-    //   })
-    // .then((data)=>{
-    //   if(bcrypt.compareSync(req.body.password, data.dataValues.password)){
-    //     let token = jwt.sign({
-    //       email: data.dataValues.email,
-    //       username: data.dataValues.username,
-    //       loginMethod: data.dataValues.loginMethod || 'web'
-    //     }, process.env.SECRETPASS);
-    //     res.send('log in berhasil : '+token);
-    //   }else{
-    //     res.send('login gagal')
-    //   }
-    // })
-    // .catch((err)=>{
-    //   res.send(err)
-    // })
+    });
   }
 };
