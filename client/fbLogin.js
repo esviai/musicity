@@ -7,7 +7,7 @@ window.fbAsyncInit = function() {
   });
   FB.AppEvents.logPageView();
   FB.getLoginStatus(function(response){
-    statusChangeCallback(response);
+    console.log(response);
   });
 };
 
@@ -19,51 +19,51 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
 function statusChangeCallback (response) {
   if(response.status === 'connected'){
     FB.api('/me', 'GET', {fields: 'name,id,email'}, function(user) {
-      window.localStorage.setItem('username',user.name);
-      window.localStorage.setItem('email',user.email);
+      //window.localStorage.setItem('username',user.name);
+      //window.localStorage.setItem('email',user.email);
       window.localStorage.setItem('token',response.authResponse.accessToken);
-      axios.get('/')
+      axios.post('http://localhost:3000/api/users', {username: user.name,email: user.email, name: user.name, loginMethod:"facebook"})
         .then ((res) => {
+          console.log('sukses dong');
           console.log(res);
+          //window.location.href="http://localhost:3000"
         })
-        .catch((err) => {
+        .catch ((err) => {
+          console.log('error cuy');
           console.log(err);
+          //window.location.href="http://localhost:3000/signin";
         });
+      //axios.get('/')
+      //  .then ((res) => {
+      //    console.log(res);
+      //  })
+      //  .catch((err) => {
+      //    console.log(err);
+      //  });
     });
-      document.getElementById('status').innerHTML = 'we are connected';
+    console.log('we are connected');
   } else if(response.status === 'not_authorized') {
-    document.getElementById('status').innerHTML = 'we are not logged in.';
+    console.log('we are not logged in.');
   } else {
-    document.getElementById('status').innerHTML = 'you are not logged in to Facebook';
+    console.log('you are not logged in to Facebook');
   }
 }
 
-function login(){
-  FB.login(function(response){
-    if(response.status === 'connected'){
-      document.getElementById('status').innerHTML = 'we are connected';
-    } else if(response.status === 'not_authorized') {
-      document.getElementById('status').innerHTML = 'we are not logged in.';
-    } else {
-      document.getElementById('status').innerHTML = 'you are not logged in to Facebook';
-    }
-
-  });
-}
-// get user basic info
-
-function getInfo() {
-    FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,email'}, function(response) {
-    document.getElementById('status').innerHTML = JSON.stringify(response);
-});
-}
-
 function logout(){
-  FB.logout(function(response) {
-    document.location.reload();
-  });
+  //FB.logout(function(response) {
+    console.log(window.localStorage.getItem("token"));
+    window.localStorage.clear();
+    //window.location.href="http://localhost:3000/signout";
+    //document.location.reload();
+  //});
 }
 
