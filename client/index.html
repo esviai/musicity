@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Musicity - Citi of My Music</title>
+		<meta name="description" content="Search Music of Mine" />
+		<meta name="author" content="Shabrina, Iam, Tirta, Deri" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:100,500,700,800' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="vendor/MorphingSearch/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="vendor/MorphingSearch/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="vendor/MorphingSearch/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="vendor/MorphingSearch/css/component.css" />
+		<script src="https://unpkg.com/vue"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- materialize -->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+		<!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/helper.css" rel="stylesheet">
+	</head>
+	<body style="background: #c1c1c1 no-repeat center bottom;">
+		<div class="container">
+			<div id="morphsearch" class="morphsearch">
+				<form class="morphsearch-form">
+					<input class="morphsearch-input" type="search" placeholder="Search..."/>
+					<button class="morphsearch-submit" type="submit">Search</button>
+				</form>
+				<div class="morphsearch-content">
+					<div class="dummy-column">
+						<h2>Artist</h2>
+						<a class="dummy-media-object" href="http://twitter.com/SaraSoueidan">
+							<img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="Sara Soueidan"/>
+							<h3>Sara Soueidan</h3>
+						</a>
+						<a class="dummy-media-object" href="http://twitter.com/rachsmithtweets">
+							<img class="round" src="http://0.gravatar.com/avatar/48959f453dffdb6236f4b33eb8e9f4b7?s=50&d=identicon&r=G" alt="Rachel Smith"/>
+							<h3>Rachel Smith</h3>
+						</a>
+						<a class="dummy-media-object" href="http://www.twitter.com/peterfinlan">
+							<img class="round" src="http://0.gravatar.com/avatar/06458359cb9e370d7c15bf6329e5facb?s=50&d=identicon&r=G" alt="Peter Finlan"/>
+							<h3>Peter Finlan</h3>
+						</a>
+						<a class="dummy-media-object" href="http://www.twitter.com/pcridesagain">
+							<img class="round" src="http://1.gravatar.com/avatar/db7700c89ae12f7d98827642b30c879f?s=50&d=identicon&r=G" alt="Patrick Cox"/>
+							<h3>Patrick Cox</h3>
+						</a>
+						<a class="dummy-media-object" href="https://twitter.com/twholman">
+							<img class="round" src="http://0.gravatar.com/avatar/cb947f0ebdde8d0f973741b366a51ed6?s=50&d=identicon&r=G" alt="Tim Holman"/>
+							<h3>Tim Holman</h3>
+						</a>
+						<a class="dummy-media-object" href="https://twitter.com/shaund0na">
+							<img class="round" src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&d=identicon&r=G" alt="Shaun Dona"/>
+							<h3>Shaun Dona</h3>
+						</a>
+					</div>
+					<div class="dummy-column">
+						<h2>Title Song</h2>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/08/05/page-preloading-effect/">
+							<img src="vendor/MorphingSearch/img/thumbs/PagePreloadingEffect.png" alt="PagePreloadingEffect"/>
+							<h3>Page Preloading Effect</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/05/28/arrow-navigation-styles/">
+							<img src="vendor/MorphingSearch/img/thumbs/ArrowNavigationStyles.png" alt="ArrowNavigationStyles"/>
+							<h3>Arrow Navigation Styles</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/">
+							<img src="vendor/MorphingSearch/img/thumbs/HoverEffectsIdeasNew.png" alt="HoverEffectsIdeasNew"/>
+							<h3>Ideas for Subtle Hover Effects</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/07/14/freebie-halcyon-days-one-page-website-template/">
+							<img src="vendor/MorphingSearch/img/thumbs/FreebieHalcyonDays.png" alt="FreebieHalcyonDays"/>
+							<h3>Halcyon Days Template</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/05/22/inspiration-for-article-intro-effects/">
+							<img src="vendor/MorphingSearch/img/thumbs/ArticleIntroEffects.png" alt="ArticleIntroEffects"/>
+							<h3>Inspiration for Article Intro Effects</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/06/26/draggable-dual-view-slideshow/">
+							<img src="vendor/MorphingSearch/img/thumbs/DraggableDualViewSlideshow.png" alt="DraggableDualViewSlideshow"/>
+							<h3>Draggable Dual-View Slideshow</h3>
+						</a>
+					</div>
+					<div class="dummy-column">
+						<h2>Lyric</h2>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/10/07/tooltip-styles-inspiration/">
+							<img src="vendor/MorphingSearch/img/thumbs/TooltipStylesInspiration.png" alt="TooltipStylesInspiration"/>
+							<h3>Tooltip Styles Inspiration</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/09/23/animated-background-headers/">
+							<img src="vendor/MorphingSearch/img/thumbs/AnimatedHeaderBackgrounds.png" alt="AnimatedHeaderBackgrounds"/>
+							<h3>Animated Background Headers</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/09/16/off-canvas-menu-effects/">
+							<img src="vendor/MorphingSearch/img/thumbs/OffCanvas.png" alt="OffCanvas"/>
+							<h3>Off-Canvas Menu Effects</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/09/02/tab-styles-inspiration/">
+							<img src="vendor/MorphingSearch/img/thumbs/TabStyles.png" alt="TabStyles"/>
+							<h3>Tab Styles Inspiration</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/">
+							<img src="vendor/MorphingSearch/img/thumbs/ResponsiveSVGs.png" alt="ResponsiveSVGs"/>
+							<h3>Make SVGs Responsive with CSS</h3>
+						</a>
+						<a class="dummy-media-object" href="http://tympanus.net/codrops/2014/07/23/notification-styles-inspiration/">
+							<img src="vendor/MorphingSearch/img/thumbs/NotificationStyles.png" alt="NotificationStyles"/>
+							<h3>Notification Styles Inspiration</h3>
+						</a>
+					</div>
+				</div><!-- /morphsearch-content -->
+				<span class="morphsearch-close"></span>
+			</div><!-- /morphsearch -->
+			<div class="overlay"></div>
+		</div><!-- /container -->
+		<div class="header-fluid">
+			<header class="codrops-header">
+				<h1>Musicity - My Music Catalog <span>Explore the world's largest catalog of song lyrics</span></h1>
+			</header>
+		</div>
+		<div class="container margin-min">
+			<div class="row">
+				<div class="col s12 library">
+					<div class="row">
+						<div class="col s4">
+							<ul class="collection with-header">
+								<li class="collection-header"><h5><strong>My Lyric Catalog</strong></h5></li>
+								<li class="collection-item avatar">
+									<img src="//s.mxmcdn.net/images-storage/albums/8/1/3/2/9/5/36592318_350_350.jpg" alt="" class="circle">
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle">folder</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle green">insert_chart</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle red">play_arrow</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+								</li>
+							</ul>
+							<ul class="collection with-header">
+								<li class="collection-header"><h5><strong>Lyric Top Songs</strong></h5></li>
+								<li class="collection-item avatar">
+									<img src="//s.mxmcdn.net/images-storage/albums/8/1/3/2/9/5/36592318_350_350.jpg" alt="" class="circle">
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle">folder</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle green">insert_chart</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"></a>
+								</li>
+								<li class="collection-item avatar">
+									<i class="material-icons circle red">play_arrow</i>
+									<span class="title">Title</span>
+									<p>Singer Name
+									</p>
+									<a href="#!" class="secondary-content"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="col s8">
+							<div class="card blue-grey darken-1">
+		            <div class="card-content white-text">
+									<div style="display:flex">
+										<div class="item-image">
+											<img src="//s.mxmcdn.net/images-storage/albums4/9/2/3/9/1/2/37219329_350_350.jpg" alt="">
+										</div>
+										<div class="item">
+											<h6>Lyric</h6>
+											<span class="card-title"><strong>Song Title</strong></span>
+											<span><h6>Singer, Author</h6></span>
+										</div>
+									</div>
+									<br>
+		              <p class="lyric" id="style-3">It's not good enough for me, since I been with you <br>
+									It's not gonna work for you, nobody can equal me <br>
+									I'm gonna sip on this drink, when I'm fucked up <br><br>
+
+									I should know how to pick up<br>
+									I'm gonna catch the rhythm while she push up against me<br>
+									Oh, was she tipsy<br>
+									I had enough convo for 24<br>
+									I peep'd you from across the room<br>
+									Pretty little body, dancing like GoGo, aye<br>
+									But you are unforgettable<br>
+									I need to get you alone<br>
+									Why not?<br>
+									A fucking good time, never hurt nobody<br>
+									I got a little drink but it's not Bacardi<br>
+									If you loved your girl then I'm so, so sorry<br>
+									I got to give it to her like we in a marriage<br>
+									Oh, like we in a hurry<br>
+									No, no I won't tell nobody<br>
+									You're on your level too<br>
+									Tryna do what lovers do</p>
+		            </div>
+		            <div class="card-action">
+		              <a href="#">Save This Lyric</a>
+		              <a href="#">Play Music</a>
+		            </div>
+		          </div>
+						</div>
+						<div class="col s12">
+							<div class="">
+								<h5><strong>My Lyric Library</strong></h5>
+								<div style="display: flex">
+									<div class="item-card">
+										<div class="card">
+											<div class="card-image waves-effect waves-block waves-light">
+												<img class="activator" src="//s.mxmcdn.net/images-storage/albums4/9/2/3/9/1/2/37219329_350_350.jpg">
+											</div>
+											<div class="card-content">
+												<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+												<p><a href="#">This is a link</a></p>
+											</div>
+											<div class="card-reveal">
+												<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+												<p>Here is some more information about this product that is only revealed once clicked on.</p>
+											</div>
+										</div>
+									</div>
+									<div class="item-card">
+										<div class="card">
+											<div class="card-image waves-effect waves-block waves-light">
+												<img class="activator" src="//s.mxmcdn.net/images-storage/albums4/9/2/3/9/1/2/37219329_350_350.jpg">
+											</div>
+											<div class="card-content">
+												<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+												<p><a href="#">This is a link</a></p>
+											</div>
+											<div class="card-reveal">
+												<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+												<p>Here is some more information about this product that is only revealed once clicked on.</p>
+											</div>
+										</div>
+									</div>
+									<div class="item-card">
+										<div class="card">
+											<div class="card-image waves-effect waves-block waves-light">
+												<img class="activator" src="//s.mxmcdn.net/images-storage/albums4/9/2/3/9/1/2/37219329_350_350.jpg">
+											</div>
+											<div class="card-content">
+												<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+												<p><a href="#">This is a link</a></p>
+											</div>
+											<div class="card-reveal">
+												<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+												<p>Here is some more information about this product that is only revealed once clicked on.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="vendor/MorphingSearch/js/classie.js"></script>
+		<script src="js/search.js"></script>
+	</body>
+</html>
