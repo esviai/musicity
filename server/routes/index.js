@@ -6,7 +6,7 @@ router.get('/', (req,res) => {
     res.send('alive');
 });
 
-router.post('/signin',control.signin);
+router.post('/signin', control.signin);
 
 router.post('/signup', control.createUser);
 

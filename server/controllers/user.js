@@ -109,8 +109,8 @@ module.exports = {
     });
   },
   signin: function(req, res, next){
-    User.findOne({where:{username: req.body.username}}, function(err, user){
-      if(user){
+    User.findOne({username: req.body.username}, (err,user) => {
+      if (user.username === req.body.username) {
         bcrypt.compare(req.body.password, user.password)
           .then ((result) => {
             if (result) {
@@ -121,9 +121,6 @@ module.exports = {
               res.send('username/password is wrong');
             }
           });
-      }
-      else {
-        res.send('You should register first');
       }
     });
   }
