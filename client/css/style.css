@@ -1,0 +1,93 @@
+body {
+	background: #c1c1c1 url(../img/unsplash.jpg) no-repeat center bottom;
+	color: #545454;
+	font-size: 1em;
+	font-family: 'Raleway', Arial, sans-serif;
+	min-height: 500px;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+input[type=search].morphsearch-input {
+  border-bottom: none;
+  outline: none;
+  height: auto;
+  margin: 10px;
+}
+
+.library {
+  background-color: #ccc;
+  min-height: 60vh;
+}
+
+.codrops-header {
+  max-width: 100%;
+}
+
+.title {
+  font-weight: bold;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.collection .collection-item.avatar {
+  min-height: auto;
+}
+
+.collection.with-header .collection-header {
+  background-color: rgb(84, 110, 122);
+  color: white;
+}
+
+.item-card {
+  width: 25%;
+  padding: 5px;
+}
+
+.header-fluid {
+  width: 100%;
+  background-color: #b9b9b9;
+  display: inline-block;
+  background-image: url(../img/3.jpg);
+  background-position-y: 27%;
+  padding: 20px 0 90px;
+}
+
+.container.margin-min {
+  margin-top: -75px;
+  position: relative;
+}
+
+.lyric {
+  max-height: 415px;
+  overflow-y: scroll;
+}
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+.item-image {
+  width: 20%;
+  margin-right: 20px;
+}
+.item-image img {
+  width: 100%;
+}
