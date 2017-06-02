@@ -85,18 +85,22 @@ module.exports = {
   },
   signin: function(req, res, next){
     User.findOne({
-      where: {
-        username: req.body.username
-      }
+      username: req.body.username
     }, function(err, data){
+      console.log(data);
       if(!err){
-        if(bcrypt.compareSync(req.body.password, data.dataValues.password)){
+        if(bcrypt.compareSync(req.body.password, data.password)){
           let token = jwt.sign({
-            email: data.dataValues.email,
-            username: data.dataValues.username,
-            loginMethod: data.dataValues.loginMethod
-          })
+            email: data.email,
+            username: data.username,
+            loginMethod: data.loginMethod || 'web'
+          }, process.env.SECRETPASS);
+          res.send('log in berhasil!\n'+token);
+        } else {
+          res.send('log in gagal!');
         }
+      } else {
+        res.send(err);
       }
     })
     // User.findOne({
