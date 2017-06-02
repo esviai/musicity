@@ -3,7 +3,7 @@ var control = require('../controllers/user');
 
 router.get('/', control.findAll);
 
-router.post('/', control.createUser);
+router.post('/', control.findOrCreateUser);
 
 router.get('/:id', control.findOne);
 

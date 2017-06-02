@@ -3,6 +3,30 @@ var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 module.exports = {
+  findOrCreateUser: function(req,res,next) {
+    User.findOne({email: req.body.email}, (err,user) => {
+      if (user) {
+        res.send('user exists');
+      }
+      else {
+        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+          User.create({
+            name: req.body.name,
+            username: req.body.username,
+            password: hash,
+            email: req.body.email,
+            loginMethod: req.body.loginMethod,
+          }, function(error, user){
+            if(!err){
+              res.send(user);
+            } else {
+              res.send(error);
+            }
+          });
+        });
+      }
+    });
+  },
   createUser: function(req, res, next){
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       User.create({
