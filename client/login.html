@@ -10,6 +10,7 @@
 </head>
 
 <body>
+ <script type="text/javascript" src="./fbLogin.js"></script>
   <div class="section"></div>
   <main>
     <center>
@@ -49,6 +50,9 @@
               </div>
             </center>
           </form>
+	    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+	    </fb:login-button>
+	    <button onclick="logout()">LogOut</button>
         </div>
       </div>
       <a href="/register.html">Create account</a>
