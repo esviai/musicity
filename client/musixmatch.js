@@ -2,7 +2,7 @@
 const app = new Vue({
   el: '#app',
   data: {
-    query: "Type song title, artist or lyrics",
+    query: "Search",
     tracks: [],
     artists: [],
     lyrics: []
@@ -19,6 +19,12 @@ const app = new Vue({
       .catch(err => console.log(err.message));
 
       axios.get(`http://localhost:3000/search/lyrics?q=${query}`)
+      .then(response => this.lyrics = response.data)
+      .catch(err => console.log(err.message));
+    },
+    getLyric(id){
+      console.log(id);
+      axios.get(`http://localhost:3000/search/lyrics?q=${id}`)
       .then(response => this.lyrics = response.data)
       .catch(err => console.log(err.message));
     }

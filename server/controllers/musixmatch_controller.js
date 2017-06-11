@@ -21,7 +21,7 @@ function getArtists(req, res) {
 }
 
 function getLyrics(req, res) {
-  unirest.get(`https://musixmatchcom-musixmatch.p.mashape.com/wsr/1.1/track.lyrics.get?track_id=15449912`)
+  unirest.get(`https://musixmatchcom-musixmatch.p.mashape.com/wsr/1.1/track.lyrics.get?track_id=${req.query.q}`)
   .header("X-Mashape-Key", "mWqprD6A7cmshi6Pn7LgFGJFfZVEp1F3DA3jsn7t4cxoaM3ySI")
   .header("Accept", "application/json")
   .end(function (result) {
